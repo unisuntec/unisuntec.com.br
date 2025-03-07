@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UniSunTec Service - Tecnologia que não para
 
-## Getting Started
+Este projeto é um site estático para a empresa UniSunTec Service, desenvolvido com [Next.js](https://nextjs.org) e exportado como HTML estático para hospedagem no GitHub Pages.
 
-First, run the development server:
+## Tecnologias Utilizadas
+
+- **Next.js 15** - Framework React com suporte a exportação estática
+- **React 19** - Biblioteca para construção de interfaces
+- **TailwindCSS** - Framework CSS utilitário
+- **shadcn/ui** - Componentes de UI reutilizáveis
+
+## Desenvolvimento Local
+
+Para iniciar o servidor de desenvolvimento:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Instalar dependências
+pnpm install
+
+# Iniciar servidor de desenvolvimento
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no navegador para visualizar o site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/src/app` - Páginas e componentes principais
+- `/src/components` - Componentes reutilizáveis
+- `/src/lib` - Utilitários e funções auxiliares
+- `/public` - Recursos estáticos (imagens, etc.)
 
-## Learn More
+## Construção e Implantação
 
-To learn more about Next.js, take a look at the following resources:
+### Construção Local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Para construir o site localmente e testá-lo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Script para construir e iniciar servidor local
+./serve-local.sh
+```
 
-## Deploy on Vercel
+### Implantação no GitHub Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Para implantar o site no GitHub Pages:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Script de implantação automatizada
+./deploy.sh
+```
+
+Este script constrói o projeto, cria os arquivos necessários para o GitHub Pages e envia para a branch gh-pages.
+
+## Otimizações
+
+- Fontes otimizadas com next/font
+- Imagens estáticas otimizadas
+- CSS minificado
+- Carregamento eficiente de recursos
+
+## Personalização
+
+As principais configurações de estilo estão em:
+- `src/app/globals.css`
+- `tailwind.config.js`
+
+A configuração do Next.js está em `next.config.js`.

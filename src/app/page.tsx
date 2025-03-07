@@ -1,3 +1,5 @@
+"use client"
+
 import UnisuntecLogo from "@/src/assets/unisuntec.jpg"
 import { Button } from "@/src/components/ui/button"
 import { Card } from "@/src/components/ui/card"
