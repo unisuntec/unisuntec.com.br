@@ -47,10 +47,11 @@ interface Testimonial {
 
 interface LinkItem {
   name: string
+  href: string
 }
 
 // Componente ServiceCard incorporado
-function ServiceCard({ icon, title, description }: ServiceCardProps): JSX.Element {
+function ServiceCard({ icon, title, description }: ServiceCardProps) {
   return (
     <Card className="p-6 bg-white hover:shadow-lg transition-shadow">
       <div className="flex flex-col items-center text-center">
@@ -65,7 +66,7 @@ function ServiceCard({ icon, title, description }: ServiceCardProps): JSX.Elemen
 }
 
 // Componente TestimonialCard incorporado
-function TestimonialCard({ name, role, content, rating }: TestimonialCardProps): JSX.Element {
+function TestimonialCard({ name, role, content, rating }: TestimonialCardProps) {
   return (
     <Card className="p-6 bg-white hover:shadow-lg transition-shadow h-full">
       <div className="flex flex-col h-full">
@@ -88,7 +89,7 @@ function TestimonialCard({ name, role, content, rating }: TestimonialCardProps):
 }
 
 // Componente TestimonialCarousel
-function TestimonialCarousel(): JSX.Element {
+function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
   const testimonials: Testimonial[] = [
@@ -273,7 +274,7 @@ function TestimonialCarousel(): JSX.Element {
     </div>
   )
 }
-function MobileMenu(): JSX.Element {
+function MobileMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toggleMenu = (): void => {
@@ -345,7 +346,7 @@ function MobileMenu(): JSX.Element {
   )
 }
 
-export default function Home(): JSX.Element {
+export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md">
@@ -595,7 +596,7 @@ export default function Home(): JSX.Element {
                 <a
                   href="https://wa.me/5521982184621?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20Unisuntec."
                   target="_blank"
-                  className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-md hover:bg-[#128C7E] transition-colors"
+                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-md hover:bg-[#128C7E] transition-colors"
                 >
                   <WhatsApp className="h-4 w-4" />
                   Falar pelo WhatsApp
@@ -805,11 +806,10 @@ export default function Home(): JSX.Element {
           </div>
 
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} Unisuntec Service. Todos os direitos reservados.</p>
+            <p> {new Date().getFullYear()} Unisuntec Service. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
     </div>
   )
 }
-

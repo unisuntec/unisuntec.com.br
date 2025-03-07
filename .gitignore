@@ -15,7 +15,9 @@
 
 # next.js
 /.next/
-/out/
+# Next.js build output
+# Uncomment the next line if you want to commit the out directory
+# !out
 
 # production
 /build

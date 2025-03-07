@@ -1,17 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-      }
-    ],
-  },
-}
+  output: 'export',
 
-module.exports = nextConfig
+  // Forçar basePath para /unisuntec.com.br
+  basePath: '/unisuntec.com.br',
+  assetPrefix: '/unisuntec.com.br/',
+  trailingSlash: true,
+
+  images: {
+    unoptimized: true,
+  },
+  experimental: {
+    optimizeCss: true,
+  },
+};
+
+module.exports = nextConfig;
