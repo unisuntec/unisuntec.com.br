@@ -25,6 +25,9 @@ find out -name "*.js"
 echo "Font files in out directory:"
 find out -name "*.woff2"
 
+# Create .nojekyll file to disable Jekyll processing on GitHub Pages
+touch out/.nojekyll
+
 # Add the exported files to git
 git add out/
 

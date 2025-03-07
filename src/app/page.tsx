@@ -1,11 +1,13 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import UnisuntecLogo from "@/src/assets/unisuntec.jpg"
+import { Button } from "@/src/components/ui/button"
+import { Card } from "@/src/components/ui/card"
 import {
   ArrowUp,
   ChevronRight,
   Clock,
+  Info,
   Instagram,
   Mail,
   MapPin,
@@ -21,8 +23,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import type { ReactNode } from "react"
-import { useEffect, useState } from "react"
-import UnisuntecLogo from "../assets/unisuntec.jpg"
+import { useEffect, useRef, useState } from "react"
 
 // Tipos
 interface ServiceCardProps {
@@ -168,7 +169,7 @@ function TestimonialCarousel() {
     }, 5000) // Avança a cada 5 segundos
 
     return () => clearInterval(interval)
-  }, [currentIndex])
+  }, [currentIndex, nextSlide])
 
   // Adicionar estilos de animação ao head
   useEffect(() => {
@@ -199,14 +200,10 @@ function TestimonialCarousel() {
     }
     
     .scrollbar-thin::-webkit-scrollbar-thumb {
-      background: #b8860b;
+      background: #888;
       border-radius: 10px;
     }
-    
-    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-      background: #a67c0b;
-    }
-  `
+    `
     document.head.appendChild(style)
 
     return () => {
@@ -274,73 +271,106 @@ function TestimonialCarousel() {
     </div>
   )
 }
+
 function MobileMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [menuVisible, setMenuVisible] = useState<boolean>(false)
+  const menuRef = useRef<HTMLDivElement>(null)
 
   const toggleMenu = (): void => {
     setIsOpen(!isOpen)
+    if (!isOpen) {
+      // Delay setting menuVisible to true to allow the overlay to appear first
+      setTimeout(() => setMenuVisible(true), 50)
+    } else {
+      setMenuVisible(false)
+    }
   }
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset'
+    
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen && menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        toggleMenu()
+      }
     }
+    
+    document.addEventListener('mousedown', handleClickOutside)
+    
     return () => {
       document.body.style.overflow = 'unset'
+      document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isOpen])
+  }, [isOpen, toggleMenu])
 
   return (
-    <div className="md:hidden w-full">
-      <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Menu" className="z-50 relative">
-        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+    <div className="md:hidden">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={toggleMenu}
+        aria-label="Menu de navegação"
+        className="relative z-50 hover:bg-transparent"
+      >
+        {isOpen ? 
+          <X className="h-6 w-6 text-[#b8860b]" /> : 
+          <Menu className="h-6 w-6 text-[#b8860b]" />
+        }
       </Button>
 
-      <div
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+          onClick={toggleMenu}
+        />
+      )}
+
+      <div 
+        ref={menuRef}
+        className={`fixed top-0 right-0 z-50 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+          menuVisible ? 'translate-x-0' : 'translate-x-full'
         }`}
-        onClick={toggleMenu}
       >
-        <div
-          className={`fixed top-0 right-0 h-full w-64 shadow-lg transform transition-transform duration-300 ease-in-out ${
-            isOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <nav className="w-full h-full flex flex-col justify-between p-4 z-50">
-            <div className="w-full px-4 space-y-6 bg-white">
-              {[
-                { name: "Serviços", href: "#servicos" },
-                { name: "Sobre", href: "#sobre" },
-                { name: "Depoimentos", href: "#depoimentos" },
-                { name: "Contato", href: "#contato" },
-              ].map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.href}
-                  className="block py-2 text-base font-medium text-gray-900 hover:text-[#b8860b] transition-colors"
-                  onClick={toggleMenu}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-
-            <div className="space-y-4 p-4  mt-auto bg-white">
-              <a
-                href="tel:+5521982184621"
-                className="flex items-center gap-2 py-2 text-gray-900 hover:text-[#b8860b] font-medium"
-              >
-                <Phone className="h-5 w-5" />
-                Atendimento 24h
-              </a>
-
-            </div>
-          </nav>
+        <div className="flex justify-end px-4 py-3 absolute top-0 right-0">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleMenu}
+            className="hover:bg-gray-100"
+          >
+            <X className="h-5 w-5 text-gray-500" />
+          </Button>
         </div>
+        
+        <nav className="px-4 py-2 flex flex-col items-center bg-white pt-6">
+          {[
+            { name: "Sobre", href: "#sobre", icon: <Info className="h-5 w-5" /> },
+            { name: "Serviços", href: "#servicos", icon: <Wrench className="h-5 w-5" /> },
+            { name: "Depoimentos", href: "#depoimentos", icon: <Star className="h-5 w-5" /> },
+            { name: "Contato", href: "#contato", icon: <Mail className="h-5 w-5" /> },
+          ].map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              className="block py-3 text-lg text-gray-600 hover:text-[#b8860b] rounded-md transition-colors w-full text-center flex items-center justify-center gap-2"
+              onClick={toggleMenu}
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </Link>
+          ))}
+          
+          <div className="my-2 w-full">
+            <a
+              href="tel:+5521982184621"
+              className="flex items-center justify-center gap-2 w-full py-3 bg-[#b8860b] text-white rounded-md hover:bg-[#a67c0b] transition-colors"
+            >
+              <Phone className="h-5 w-5" />
+              <span className="font-medium">Atendimento 24h</span>
+            </a>
+          </div>
+        </nav>
       </div>
     </div>
   )
@@ -390,7 +420,7 @@ export default function Home() {
               href="https://api.whatsapp.com/send?phone=5521982184621&text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento."
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center justify-center px-4 py-2 bg-[#b8860b] hover:bg-[#a67c0b] text-white rounded-md text-sm font-medium transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 gap-2 bg-[#b8860b] hover:bg-[#a67c0b] text-white rounded-md text-sm font-medium transition-colors"
             >
               <WhatsApp className="mr-2 h-4 w-4" />
               Solicitar Orçamento
@@ -418,7 +448,7 @@ export default function Home() {
                     href="https://api.whatsapp.com/send?phone=5521982184621&text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-[#b8860b] hover:bg-[#a67c0b] text-white rounded-md text-base font-medium transition-colors"
+                    className="inline-flex items-center justify-center px-6 py-3 gap-2 bg-[#b8860b] hover:bg-[#a67c0b] text-white rounded-md text-base font-medium transition-colors"
                   >
                     Solicitar Orçamento
                     <WhatsApp className="ml-2 h-4 w-4" />
@@ -477,7 +507,7 @@ export default function Home() {
               />
               <ServiceCard
                 icon={<Sparkles />}
-                title="Modernização"
+                title="Modernizações"
                 description="Atualize seu elevador com as mais recentes tecnologias para melhorar desempenho, segurança e eficiência energética."
               />
               <ServiceCard
@@ -733,7 +763,7 @@ export default function Home() {
                   "Instalação de Elevadores",
                   "Manutenção Preventiva",
                   "Reparos e Correções",
-                  "Modernização",
+                  "Modernizações",
                   "Instalação de Geradores",
                   "Embelezamento",
                 ].map((service: string, index: number) => (
