@@ -4,10 +4,13 @@ import type React from "react"
 import "./globals.css"
 import GoogleAnalytics from "./GoogleAnalytics"
 
+// Done
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap', // Helps with font loading
-  variable: '--font-inter' // Add a CSS variable
+  variable: '--font-inter', // Add a CSS variable
+  fallback: ['system-ui', 'arial', 'sans-serif'], // Add fallback fonts
+  preload: false // Disable preloading if network is unreliable
 })
 
 export const metadata: Metadata = {

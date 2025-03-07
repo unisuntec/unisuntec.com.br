@@ -6,33 +6,51 @@ set -e
 # Enable verbose output
 set -x
 
-# Clean previous builds
-rm -rf out .next
+# Definir repositório remoto
+REMOTE_REPO="github"
+BRANCH="gh-pages"
 
-# Install dependencies
+# Buscar e sincronizar `gh-pages`
+git fetch $REMOTE_REPO $BRANCH
+
+# Se o diretório out existe, removê-lo manualmente
+if [ -d "out" ]; then
+    echo "Removendo diretório out..."
+    # Força a remoção sem depender do git worktree
+    rm -rf out
+    # Limpar referências de worktree
+    git worktree prune
+fi
+
+# Criar um worktree para `gh-pages`
+git worktree add out $BRANCH
+
+# Remover arquivos antigos do diretório `out/`, mantendo o histórico
+rm -rf out/* .next
+
+# Instalar dependências
 pnpm install
 
-# Build for GitHub Pages
+# Build para GitHub Pages
 GITHUB_PAGES=true pnpm build
 
-# Verify the contents of the out directory
-echo "Contents of out directory:"
-ls -la out
-echo "CSS files in out directory:"
-find out -name "*.css"
-echo "JS files in out directory:"
-find out -name "*.js"
-echo "Font files in out directory:"
-find out -name "*.woff2"
+# Criar o arquivo CNAME para manter o domínio personalizado
+echo "unisuntec.com.br" > out/CNAME  # Substitua pelo seu domínio
+cat out/CNAME  # Verifica se o domínio foi salvo corretamente
 
-# Create .nojekyll file to disable Jekyll processing on GitHub Pages
+# Criar .nojekyll para evitar problemas no GitHub Pages
 touch out/.nojekyll
 
-# Add the exported files to git
-git add out/
+# Ir para a pasta `out/` e fazer commit diretamente no `gh-pages`
+cd out
+git add .
+git commit -m "Deploy atualizado: $(date +'%Y-%m-%d %H:%M:%S')"
 
-# Commit the build
-git commit -m "Build for GitHub Pages: $(date +'%Y-%m-%d %H:%M:%S')"
+# Enviar mudanças para `gh-pages`
+git push $REMOTE_REPO $BRANCH
 
-# Push to the GitHub Pages branch
-git subtree push --prefix out github gh-pages
+# Voltar para a raiz do projeto e remover o worktree
+cd ..
+# Remover o worktree de forma segura
+rm -rf out
+git worktree prune
