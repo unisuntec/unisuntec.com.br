@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/src/components/ui/button"
 import {
     ChevronRight,
@@ -11,8 +13,32 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { Testimonial, TestimonialCard } from "./page"
+import { Card } from "../components/ui/card"
+import { Testimonial, TestimonialCardProps, } from "./page"
 
+
+// Componente TestimonialCard incorporado
+export function TestimonialCard({ name, role, content, rating }: TestimonialCardProps) {
+    return (
+      <Card className="p-6 bg-white hover:shadow-lg transition-shadow h-full">
+        <div className="flex flex-col h-full">
+          <div className="flex mb-4">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star
+                key={i}
+                className={`h-5 w-5 ${i < rating ? "fill-[#b8860b] text-[#b8860b]" : "fill-gray-200 text-gray-200"}`}
+              />
+            ))}
+          </div>
+          <p className="text-gray-600 mb-6 flex-grow overflow-y-auto max-h-[120px] scrollbar-thin">{content}</p>
+          <div>
+            <p className="font-semibold">{name}</p>
+            <p className="text-sm text-gray-500">{role}</p>
+          </div>
+        </div>
+      </Card>
+    )
+  }
 
 // Componente TestimonialCarousel
 export function TestimonialCarousel() {
