@@ -3,6 +3,46 @@
 import ElevatorImage from "@/src/assets/consertando-elevador.jpg"
 import UnisuntecLogo from "@/src/assets/unisuntec.jpg"
 import { Button } from "@/src/components/ui/button"
+
+// Modernização de Cabine
+import ModernizacaoCabine1Antes from "@/src/assets/modernizacao_cabine/1-antes.jpeg"
+import ModernizacaoCabine1Depois from "@/src/assets/modernizacao_cabine/1-depois.jpeg"
+import ModernizacaoCabine2Antes from "@/src/assets/modernizacao_cabine/2-antes.jpeg"
+import ModernizacaoCabine2Depois from "@/src/assets/modernizacao_cabine/2-depois.jpeg"
+
+// Instalação de Elevador Residencial
+import InstalacaoElevadorResidencial1Antes from "@/src/assets/instalacao_elevador_residencial/1-antes.jpeg"
+import InstalacaoElevadorResidencial1Depois from "@/src/assets/instalacao_elevador_residencial/1-depois.jpeg"
+
+// Modernização de Quadro
+import ModernizacaoQuadro1Antes from "@/src/assets/modernizacao_quadro/1-antes.jpeg"
+import ModernizacaoQuadro1Depois from "@/src/assets/modernizacao_quadro/1-depois.jpeg"
+import ModernizacaoQuadro2Antes from "@/src/assets/modernizacao_quadro/2-antes.jpeg"
+import ModernizacaoQuadro2Depois from "@/src/assets/modernizacao_quadro/2-depois.jpeg"
+import ModernizacaoQuadro3Antes from "@/src/assets/modernizacao_quadro/3-antes.jpeg"
+import ModernizacaoQuadro3Depois from "@/src/assets/modernizacao_quadro/3-depois.jpeg"
+import ModernizacaoQuadro4Antes from "@/src/assets/modernizacao_quadro/4-antes.jpeg"
+import ModernizacaoQuadro4Depois from "@/src/assets/modernizacao_quadro/4-depois.jpeg"
+
+// Modernização de Piso da Cabine
+import ModernizacaoPisoCabine1Antes from "@/src/assets/modernizacao_piso_cabine/1-antes.jpeg"
+import ModernizacaoPisoCabine1Depois from "@/src/assets/modernizacao_piso_cabine/1-depois.jpeg"
+
+// Renovação de Portas
+import RenovacaoPortas1Antes from "@/src/assets/renovacao_de_portas/1-antes.jpeg"
+import RenovacaoPortas1Depois from "@/src/assets/renovacao_de_portas/1-depois.jpeg"
+import RenovacaoPortas2Antes from "@/src/assets/renovacao_de_portas/2-antes.jpeg"
+import RenovacaoPortas2Depois from "@/src/assets/renovacao_de_portas/2-depois.jpeg"
+
+// Reparos
+import Reparos1TrocaRolamento from "@/src/assets/reparos/1-troca-rolamento.jpeg"
+import Reparos1TrocaRolamento2 from "@/src/assets/reparos/1-troca-rolamento-2.jpeg"
+import Reparos2UsinagemEngrenagem from "@/src/assets/reparos/2-usinagem_engrenagem.jpeg"
+import Reparos2UsinagemEngrenagem2 from "@/src/assets/reparos/2-usinagem_engrenagem-2.jpeg"
+
+// Revitalização Motor Elevador
+import RevitalizacaoMotorElevador from "@/src/assets/revitalizacao_motor_elevador/1-revitalizacao-motor.jpeg"
+import RevitalizacaoMotorElevador2 from "@/src/assets/revitalizacao_motor_elevador/1-revitalizacao-motor-2.jpeg"
 import { Card } from "@/src/components/ui/card"
 import {
   ArrowUp,
@@ -394,8 +434,8 @@ function BeforeAfterGallery() {
       id: 1,
       title: "Modernização de Cabine - 1",
       description: "Modernização completa do interior da cabine com revestimento de aço escovado, remanejamento da iluminação elétrica, instalação de novo piso e iluminação LED.",
-      beforeImage: require("@/src/assets/modernizacao_cabine/1-antes.jpeg"),
-      afterImage: require("@/src/assets/modernizacao_cabine/1-depois.jpeg"),
+      beforeImage: ModernizacaoCabine1Antes,
+      afterImage: ModernizacaoCabine1Depois,
       category: "Modernização",
       type: "modernization"
     },
@@ -403,8 +443,8 @@ function BeforeAfterGallery() {
       id: 2,
       title: "Instalação de Elevador Residencial",
       description: "Instalação completa de elevador residencial com estrutura metálica personalizada e acabamento em vidro temperado. O serviço inclui a construção do poço, montagem da estrutura de sustentação e instalação do equipamento com todos os sistemas de segurança. Solução elegante que combina funcionalidade, design moderno e valorização do imóvel.",
-      beforeImage: require("@/src/assets/instalacao_elevador_residencial/1-antes.jpeg"),
-      afterImage: require("@/src/assets/instalacao_elevador_residencial/1-depois.jpeg"),
+      beforeImage: InstalacaoElevadorResidencial1Antes,
+      afterImage: InstalacaoElevadorResidencial1Depois,
       category: "Instalação",
       type: "installation"
     },
@@ -412,8 +452,8 @@ function BeforeAfterGallery() {
       id: 3,
       title: "Modernização do Quadro de Comando do Elevador",
       description: "Modernização do quadro de comando do elevador, substituindo componentes antigos por tecnologia atual. Reorganização completa da fiação e separação adequada dos circuitos, eliminando interferências e aumentando significativamente a segurança e confiabilidade do sistema. Pode chegar até 40% de economia de energia, além de modificar a forma de abordar o sistema.",
-      beforeImage: require("@/src/assets/modernizacao_quadro/1-antes.jpeg"),
-      afterImage: require("@/src/assets/modernizacao_quadro/1-depois.jpeg"),
+      beforeImage: ModernizacaoQuadro1Antes,
+      afterImage: ModernizacaoQuadro1Depois,
       category: "Modernização",
       type: "modernization"
     },
@@ -421,8 +461,8 @@ function BeforeAfterGallery() {
       id: 4,
       title: "Modernização de Piso da Cabine do Elevador",
       description: "Instalação de piso de granito na cabine do elevador com soleira personalizada, proporcionando um acabamento sofisticado e moderno que valoriza o ambiente e aumenta a durabilidade do equipamento.",
-      beforeImage: require("@/src/assets/modernizacao_piso_cabine/1-antes.jpeg"),
-      afterImage: require("@/src/assets/modernizacao_piso_cabine/1-depois.jpeg"),
+      beforeImage: ModernizacaoPisoCabine1Antes,
+      afterImage: ModernizacaoPisoCabine1Depois,
       category: "Modernização",
       type: "modernization"
     },
@@ -430,8 +470,8 @@ function BeforeAfterGallery() {
       id: 5,
       title: "Renovação de Portas",
       description: "Pintura eletrostática das portas de pavimento, proporcionando um acabamento elegante e aumentando significativamente a durabilidade do equipamento.",
-      beforeImage: require("@/src/assets/renovacao_de_portas/1-antes.jpeg"),
-      afterImage: require("@/src/assets/renovacao_de_portas/1-depois.jpeg"),
+      beforeImage: RenovacaoPortas1Antes,
+      afterImage: RenovacaoPortas1Depois,
       category: "Modernização",
       type: "modernization"
     },
@@ -439,8 +479,8 @@ function BeforeAfterGallery() {
       id: 6,
       title: "Troca de Rolamento de Peso",
       description: "Substituição completa do sistema de rolamentos da máquina de tração do elevador. Este procedimento de manutenção preventiva elimina ruídos indesejados, aumenta a vida útil do equipamento e garante um funcionamento mais suave e silencioso.",
-      beforeImage: require("@/src/assets/reparos/1-troca-rolamento.jpeg"),
-      afterImage: require("@/src/assets/reparos/1-troca-rolamento-2.jpeg"),
+      beforeImage: Reparos1TrocaRolamento,
+      afterImage: Reparos1TrocaRolamento2,
       category: "Reparo",
       type: "repair"
     },
@@ -448,8 +488,8 @@ function BeforeAfterGallery() {
       id: 7,
       title: "Usinagem da Engrenagem da Máquina de Tração",
       description: "Reparo especializado através da usinagem da engrenagem da máquina de tração do elevador. Este procedimento técnico corrige o desgaste natural e elimina folgas que poderiam comprometer o funcionamento do sistema. A manutenção preventiva desta peça crítica garante maior precisão nos movimentos, reduz vibrações, prolonga a vida útil do equipamento e assegura um transporte mais seguro e confortável.",
-      beforeImage: require("@/src/assets/reparos/2-usinagem_engrenagem.jpeg"),
-      afterImage: require("@/src/assets/reparos/2-usinagem_engrenagem-2.jpeg"),
+      beforeImage: Reparos2UsinagemEngrenagem,
+      afterImage: Reparos2UsinagemEngrenagem2,
       category: "Reparo",
       type: "repair"
     },
@@ -457,8 +497,8 @@ function BeforeAfterGallery() {
       id: 8,
       title: "Modernização de Cabine - 2",
       description: "Modernização completa do interior da cabine com acabamento premium em aço escovado e revestimento em fórmica de alta durabilidade. Inclui remanejamento completo do sistema elétrico, instalação de piso de alto tráfego e iluminação LED de baixo consumo, proporcionando ambiente mais sofisticado, seguro e eficiente energeticamente.",
-      beforeImage: require("@/src/assets/modernizacao_cabine/2-antes.jpeg"),
-      afterImage: require("@/src/assets/modernizacao_cabine/2-depois.jpeg"),
+      beforeImage: ModernizacaoCabine2Antes,
+      afterImage: ModernizacaoCabine2Depois,
       category: "Modernização",
       type: "modernization"
     },
@@ -466,8 +506,8 @@ function BeforeAfterGallery() {
       id: 9,
       title: "Modernização do Quadro de Comando do Elevador",
       description: "Modernização do quadro de comando do elevador, substituindo componentes antigos por tecnologia atual. Reorganização completa da fiação e separação adequada dos circuitos, eliminando interferências e aumentando significativamente a segurança e confiabilidade do sistema. Pode chegar até 40% de economia de energia, além de modificar a forma de abordar o sistema.",
-      beforeImage: require("@/src/assets/modernizacao_quadro/2-antes.jpeg"),
-      afterImage: require("@/src/assets/modernizacao_quadro/2-depois.jpeg"),
+      beforeImage: ModernizacaoQuadro2Antes,
+      afterImage: ModernizacaoQuadro2Depois,
       category: "Modernização",
       type: "modernization"
     },    
@@ -475,8 +515,8 @@ function BeforeAfterGallery() {
       id: 10,
       title: "Modernização do Quadro de Comando do Elevador",
       description: "Modernização do quadro de comando do elevador, substituindo componentes antigos por tecnologia atual. Reorganização completa da fiação e separação adequada dos circuitos, eliminando interferências e aumentando significativamente a segurança e confiabilidade do sistema. Pode chegar até 40% de economia de energia, além de modificar a forma de abordar o sistema.",
-      beforeImage: require("@/src/assets/modernizacao_quadro/3-antes.jpeg"),
-      afterImage: require("@/src/assets/modernizacao_quadro/3-depois.jpeg"),
+      beforeImage: ModernizacaoQuadro3Antes,
+      afterImage: ModernizacaoQuadro3Depois,
       category: "Modernização",
       type: "modernization"
     },  
@@ -484,8 +524,8 @@ function BeforeAfterGallery() {
       id: 11,
       title: "Modernização do Quadro de Comando do Elevador",
       description: "Modernização do quadro de comando do elevador, substituindo componentes antigos por tecnologia atual. Reorganização completa da fiação e separação adequada dos circuitos, eliminando interferências e aumentando significativamente a segurança e confiabilidade do sistema. Pode chegar até 40% de economia de energia, além de modificar a forma de abordar o sistema.",
-      beforeImage: require("@/src/assets/modernizacao_quadro/4-antes.jpeg"),
-      afterImage: require("@/src/assets/modernizacao_quadro/4-depois.jpeg"),
+      beforeImage: ModernizacaoQuadro4Antes,
+      afterImage: ModernizacaoQuadro4Depois,
       category: "Modernização",
       type: "modernization"
     },    
@@ -493,8 +533,8 @@ function BeforeAfterGallery() {
       id: 12,
       title: "Renovação de Portas",
       description: "Revestimento de porta em aço escovado, proporcionando uma transformação completa do acabamento. Foi substituída a pintura eletrostática original pelo revestimento em aço escovado, conferindo um visual moderno, sofisticado e de alta durabilidade ao equipamento.",
-      beforeImage: require("@/src/assets/renovacao_de_portas/2-antes.jpeg"),
-      afterImage: require("@/src/assets/renovacao_de_portas/2-depois.jpeg"),
+      beforeImage: RenovacaoPortas2Antes,
+      afterImage: RenovacaoPortas2Depois,
       category: "Modernização",
       type: "modernization"
     },
@@ -502,8 +542,8 @@ function BeforeAfterGallery() {
       id: 13,
       title: "Revitalização do Motor do Elevador",
       description: "Revisão e revitalização estética dos motores elétricos das máquinas de elevador, melhorando a aparência, funcionalidade e prolongando a vida útil do equipamento.",
-      beforeImage: require("@/src/assets/revitalizacao_motor_elevador/1-revitalizacao-motor.jpeg"),
-      afterImage: require("@/src/assets/revitalizacao_motor_elevador/1-revitalizacao-motor-2.jpeg"),
+      beforeImage: RevitalizacaoMotorElevador,
+      afterImage: RevitalizacaoMotorElevador2,
       category: "Modernização",
       type: "repair"
     },    
