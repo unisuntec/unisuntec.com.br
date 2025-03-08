@@ -12,15 +12,14 @@ const inter = Inter({
   fallback: ['system-ui', 'arial', 'sans-serif'], // Add fallback fonts
   preload: false // Disable preloading if network is unreliable
 })
-
 export const metadata: Metadata = {
   title: "Unisuntec Service - Tecnologia que não para",
-  description: "Serviços de elevadores: instalação, manutenção, modernização e reparos. Atendimento 24 horas.",
-  keywords: ["elevadores", "manutenção", "instalação", "modernização", "reparos", "atendimento 24 horas"],
+  description: "Serviços especializados em elevadores: instalação, manutenção, modernização de cabines, quadros de comando, pisos, portas e reparos técnicos. Atendimento 24 horas.",
+  keywords: ["elevadores", "manutenção", "instalação", "modernização", "reparos", "atendimento 24 horas", "modernização de cabine", "instalação de elevador residencial", "quadro de comando", "piso de elevador", "renovação de portas", "troca de rolamento", "usinagem de engrenagem"],
   authors: [{ name: "Unisuntec Service" }],
   openGraph: {
     title: "Unisuntec Service - Tecnologia que não para",
-    description: "Serviços de elevadores: instalação, manutenção, modernização e reparos. Atendimento 24 horas.",
+    description: "Especialistas em elevadores: modernização de cabines com aço escovado, instalação residencial com estrutura personalizada, renovação de quadros de comando, pisos em granito, portas com pintura eletrostática e reparos técnicos especializados.",
     url: "https://www.unisuntec.com.br",
     siteName: "Unisuntec Service",
     images: [
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Unisuntec Service - Tecnologia que não para",
-    description: "Serviços de elevadores: instalação, manutenção, modernização e reparos. Atendimento 24 horas.",
+    description: "Especialistas em modernização de elevadores, instalações residenciais, reparos técnicos como usinagem de engrenagens e troca de rolamentos. Soluções completas para elevadores com economia de energia e aumento da vida útil.",
     images: ["https://www.unisuntec.com.br/unisuntec.jpg"],
   },
 }
