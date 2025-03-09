@@ -674,8 +674,8 @@ function BeforeAfterGallery() {
             </div>
 
             <div className="p-4 overflow-y-auto">
-              <div className="hidden md:flex flex-row gap-4">
-                <div className="relative h-96 w-1/2">
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="relative h-80 w-full md:w-1/2">
                   <Image
                     src={transformations.find((t) => t.id === selectedTransformation)?.beforeImage || ""}
                     alt="Antes"
@@ -689,7 +689,7 @@ function BeforeAfterGallery() {
                   )}
                 </div>
 
-                <div className="relative h-96 w-1/2">
+                <div className="relative h-80 w-full md:w-1/2">
                   <Image
                     src={transformations.find((t) => t.id === selectedTransformation)?.afterImage || ""}
                     alt="Depois"
