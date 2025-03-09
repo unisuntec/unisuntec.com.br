@@ -35,14 +35,20 @@ import RenovacaoPortas2Antes from "@/src/assets/renovacao_de_portas/2-antes.jpeg
 import RenovacaoPortas2Depois from "@/src/assets/renovacao_de_portas/2-depois.jpeg"
 
 // Reparos
-import Reparos1TrocaRolamento from "@/src/assets/reparos/1-troca-rolamento.jpeg"
 import Reparos1TrocaRolamento2 from "@/src/assets/reparos/1-troca-rolamento-2.jpeg"
-import Reparos2UsinagemEngrenagem from "@/src/assets/reparos/2-usinagem_engrenagem.jpeg"
+import Reparos1TrocaRolamento from "@/src/assets/reparos/1-troca-rolamento.jpeg"
 import Reparos2UsinagemEngrenagem2 from "@/src/assets/reparos/2-usinagem_engrenagem-2.jpeg"
+import Reparos2UsinagemEngrenagem from "@/src/assets/reparos/2-usinagem_engrenagem.jpeg"
 
 // Revitalização Motor Elevador
-import RevitalizacaoMotorElevador from "@/src/assets/revitalizacao_motor_elevador/1-revitalizacao-motor.jpeg"
 import RevitalizacaoMotorElevador2 from "@/src/assets/revitalizacao_motor_elevador/1-revitalizacao-motor-2.jpeg"
+import RevitalizacaoMotorElevador from "@/src/assets/revitalizacao_motor_elevador/1-revitalizacao-motor.jpeg"
+
+// Instalação Geradores
+import InstalacaoGeradores1_2 from "@/src/assets/instalacao_gerador/1-gerador-2.jpeg"
+import InstalacaoGeradores1 from "@/src/assets/instalacao_gerador/1-gerador.jpeg"
+
+
 import { Card } from "@/src/components/ui/card"
 import {
   ArrowUp,
@@ -547,6 +553,15 @@ function BeforeAfterGallery() {
       category: "Modernização",
       type: "repair"
     },    
+    {
+      id: 14,
+      title: "Instalação de Gerador",
+      description: "Instalação e configuração de sistema gerador de emergência para elevadores, garantindo funcionamento contínuo durante quedas de energia. Inclui integração com o quadro de comando existente, testes de carga e configuração de transferência automática, proporcionando maior segurança e confiabilidade ao sistema. Também pode ser usado em residências, oferecendo solução completa para ambientes domésticos.",
+      beforeImage: InstalacaoGeradores1.src,
+      afterImage: InstalacaoGeradores1_2.src,
+      category: "Instalação",
+      type: "installation"
+    },   
   ]
 
   const [activeCategory, setActiveCategory] = useState<string>("Todos")
@@ -658,9 +673,9 @@ function BeforeAfterGallery() {
               </button>
             </div>
 
-            <div className="p-4">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex-1 relative h-80">
+            <div className="p-4 overflow-y-auto">
+              <div className="flex flex-col gap-4">
+                <div className="relative h-80 w-full">
                   <Image
                     src={transformations.find((t) => t.id === selectedTransformation)?.beforeImage || ""}
                     alt="Antes"
@@ -674,7 +689,7 @@ function BeforeAfterGallery() {
                   )}
                 </div>
 
-                <div className="flex-1 relative h-80">
+                <div className="relative h-80 w-full">
                   <Image
                     src={transformations.find((t) => t.id === selectedTransformation)?.afterImage || ""}
                     alt="Depois"
